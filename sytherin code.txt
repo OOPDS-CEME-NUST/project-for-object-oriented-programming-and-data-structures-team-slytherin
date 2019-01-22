@@ -1,0 +1,371 @@
+//PROJECT MEDiNET
+//PT.1
+//ACTIVITY #1
+//JAVA CODE:
+package com.example.eishagul.afinally;
+
+import android.content.Intent;
+import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class p1 extends AppCompatActivity {
+    private static final long SPLASH_TIME_OUT = 3000;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_p1);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent homeIntent = new Intent(p1.this, p2.class);
+                startActivity(homeIntent);
+                finish();
+
+            }
+        }, SPLASH_TIME_OUT);
+
+
+    }
+}
+//XML CODE:
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#b71c1c"
+    tools:context=".p1">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        android:text="@string/app_name"
+        android:textColor="#ffffff"
+        android:textSize="40sp"
+        android:typeface="serif"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</RelativeLayout>
+
+
+
+//ACTIVITY #2
+//JAVA CODE:
+package com.example.eishagul.afinally;
+
+import android.content.Intent;
+import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class p2 extends AppCompatActivity {
+
+    private static final long SPLASH_TIME_OUT = 3000;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_p2);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent homeIntent = new Intent(p2.this, p3.class);
+                startActivity(homeIntent);
+                finish();
+
+            }
+        }, SPLASH_TIME_OUT);
+
+
+    }
+}
+
+//XML CODE:
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".p2">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="0dp"
+        android:gravity="center"
+        android:text="@string/string_name"
+        android:textColor="#b71c1c"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:typeface="serif" />
+
+
+
+</RelativeLayout>
+
+
+//ACTIVITY #3
+//JAVA CODE:
+package com.example.eishagul.afinally;
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+/**
+ * A login screen that offers login via email/password.
+ */
+public class p3 extends AppCompatActivity {
+    Button btn;
+    EditText u,p;
+    private static final int REQUEST_READ_CONTACTS = 0;
+
+    /**
+     * A dummy authentication store containing known user names and passwords.
+     * TODO: remove after connecting to a real authentication system.
+     */
+    private static final String[] DUMMY_CREDENTIALS = new String[]{
+            "foo@example.com:hello", "bar@example.com:world"
+    };
+/**
+ * Keep track of the login task to ensure we can cancel it if requested.
+ */
+
+
+// UI references.
+private EditText mPasswordView,musername;
+    private View mProgressView;
+    private View mLoginFormView;
+
+    @Override
+    protected void onCreate(Bundle SavedInstanceState)
+    {
+        super.onCreate(SavedInstanceState);
+        setContentView(R.layout.activity_p3);
+
+
+
+    u= (EditText) findViewById(R.id.u);
+    p= (EditText) findViewById(R.id.p);
+    btn= (Button) findViewById(R.id.btn);
+
+        btn.setOnClickListener( new View.OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+
+
+            Intent myintent = new Intent(p3.this, p4.class);
+            startActivity(myintent);
+
+        }
+
+
+
+
+    });
+}}
+
+
+//XML CODE:
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#b71c1c"
+    tools:context=".p3">
+
+    <!-- Login progress -->
+    <ProgressBar
+        android:id="@+id/login_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:id="@+id/login_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/email_login_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <AutoCompleteTextView
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/prompt_email"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/prompt_password"
+                    android:imeActionId="6"
+                    android:imeActionLabel="@string/action_sign_in"
+                    android:imeOptions="actionUnspecified"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    tools:ignore="TextViewEdits" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/btn"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/action_sign_in"
+                android:textColor="#ffffff"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+
+<resources>
+    <string name="app_name">MEDiNET</string>
+    <string name="string_name">Because We Care</string>
+    <string name="title_activity_part3">Sign in</string>
+    <string name="action_sign">Sign in</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="action_sign_in">sign in </string>
+    <string name="action_sign_in_short">Hospital 2</string>
+    <string name="action_sign_in1">Hospital 3</string>
+    <string name="action_sign_in2">Hospital 4</string>
+    <string name="action_sign_in5">Hospital 1</string>
+
+    <string name="title_activity_p4">Map</string>
+    <string name="what_s_the_matter">What\'s The Matter?</string>
+    <string name="problem">Problem</string>
+    <string name="next">Next</string>
+    <string name="set">set</string>
+    <string name="enter_time">Enter the time</string>
+    <string name="time">time</string>
+    <string name="action_sign1">Doctor 1</string>
+    <string name="action_sign2">Doctor 2</string>
+    <string name="action_sign3">Doctor 3</string>
+    <string name="action_sign4">Doctor 4</string>
+    <string name="sign_in">Sign In</string>
+    <string name="title_activity_login">Sign in</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_p3">Sign in</string>
+
+</resources>
+
+//ACTIVITY #4
+//JAVA CODE:
+package com.example.eishagul.afinally;
+
+import android.content.Intent;
+import android.os.Handler;
+import android.support.v4.app.FragmentActivity;
+import android.os.Bundle;
+import android.view.View;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+public class p4 extends FragmentActivity implements OnMapReadyCallback {
+    private static final long SPLASH_TIME_OUT = 3000;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_p4);
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        assert mapFragment != null;
+        mapFragment.getMapAsync(this);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent homeIntent = new Intent(p4.this, p5.class);
+                startActivity(homeIntent);
+            }
+        }, SPLASH_TIME_OUT);
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+
+        // Add a marker in Sydney and move the camera
+        LatLng sydney = new LatLng(34, 73);
+        Marker marker_in_sydney = googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+    }
+    }
+
+//XML CODE:
+<?xml version="1.0" encoding="utf-8"?>
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:map="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/map"
+android:name="com.google.android.gms.maps.SupportMapFragment"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".p4" />
+
